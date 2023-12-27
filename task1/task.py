@@ -1,15 +1,23 @@
 import csv
 
-i = 5
-j = 3
+def read_csv_cell(file_path, row_index, column_index):
+    with open(file_path, newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        data = list(reader)
 
-with open('file.csv', 'r', encoding='utf-8') as csvfile:
-    csvreader = csv.reader(csvfile)
+        if row_index <= len(data) and column_index <= len(data[row_index-1]):
+            cell_value = data[row_index-1][column_index-1]
+            return cell_value
+        else:
+            return None
 
-    for _ in range(i - 1):
-        next(csvreader)
-    
-    row = next(csvreader)
-    element = row[j - 1]
+file_path = input()
+row_index = int(input())
+column_index = int(input())
 
-    print(f'На позиции ({i}, {j}): {element}')
+cell_value = read_csv_cell(file_path, row_index, column_index)
+if cell_value is not None:
+    print("The value in cell ({}, {}) is: {}".format(row_index, column_index, cell_value))
+else:
+    print("Invalid row or column index.")
+
