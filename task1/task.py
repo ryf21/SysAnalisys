@@ -1,12 +1,11 @@
 import csv
 import sys
 
-with open(sys.argv[1], 'r') as f:
-    lineIdx = int(sys.argv[2])
-    columnIdx = int(sys.argv[3])
-    reader = csv.reader(f)
+data = sys.argv[1]
+row = int(sys.argv[2])
+column = int(sys.argv[3])
 
-    for i, row in enumerate(reader):
-        if i == lineIdx:
-            print(row[columnIdx])
+with open(data, newline='') as csvfile:
+    csv_table = list(csv.reader(csvfile, delimiter=','))
+    print(csv_table[row - 1][column - 1])
 
