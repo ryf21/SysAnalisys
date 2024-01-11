@@ -235,8 +235,8 @@ def f2(str1, str2, isStr) -> list:
 def task(str1, str2) -> list:
     return f2(str1, str2, isStrResultType(str1, str2))
 
-    str1 = '[1,[2,3],4,[5,6,7],8,9,10]'
-    str2 = '[[1,2],[3,4,5],6,7,9,[8,10]]'
+    str1 = '[1,2,3,4,5,6,7,8,9,10]'
+    str2 = '[10,9,8,7,6,5,4,3,2,1]'
     str3 = '[3,[1,4],2,6,[5,7,8],[9,10]]'
 
     print(task(str1, str2))
